@@ -3,6 +3,6 @@ transformers
 datasets 
 accelerate 
 bitsandbytes 
-timm 
+ 
 pandas 
 numpy  
