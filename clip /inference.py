@@ -1,20 +1,8 @@
 from modeling_clip import CLIPModel
 from configuration import CFG 
 from torch_utils import get_transforms, CLIPDataset
-from dotenv import load_dotenv
-import os
-load_dotenv()
 
-kaggle_username = os.getenv('KAGGLE_USERNAME')
-kaggle_key = os.getenv('KAGGLE_KEY')
-os.environ['KAGGLE_USERNAME'] = kaggle_username
-os.environ['KAGGLE_KEY'] = kaggle_key
-
-def process_data():
-    df = pd.read_csv("captions.txt")
-    df['id'] = [id_ for id_ in range(df.shape[0] // 5) for _ in range(5)]
-    df.to_csv("captions.csv", index=False)
-    
+  
 def make_train_valid_dfs():
     dataframe = pd.read_csv(f"{CFG.captions_path}")
     max_id = dataframe["id"].max() + 1 if not CFG.debug else 100
