@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import  AutoTokenizer, BertModel,BertConfig
 import transformers
-
+import timm 
 from .configuration import CFG 
 
 
