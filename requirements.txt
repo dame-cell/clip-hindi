@@ -2,6 +2,7 @@ torch
 transformers 
 datasets 
 accelerate 
+timm 
 bitsandbytes 
 albumentations
 pillow 
