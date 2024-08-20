@@ -12,8 +12,8 @@ from tqdm.notebook import tqdm
 from transformers import AutoTokenizer 
 
   
-def make_train_valid_dfs():
-    dataframe = pd.read_csv(f"{CFG.captions_path}")
+def make_train_valid_dfs(caption_path):
+    dataframe = pd.read_csv(caption_path)
     max_id = dataframe["id"].max() + 1 if not CFG.debug else 100
     image_ids = np.arange(0, max_id)
     np.random.seed(42)
