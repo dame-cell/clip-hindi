@@ -59,7 +59,7 @@ def get_image_embeddings(valid_df,image_path,model_path):
             valid_image_embeddings.append(image_embeddings)
     return model, torch.cat(valid_image_embeddings)
 
-def find_matches(model, image_embeddings, query, image_filenames, n=9):
+def find_matches(model, image_embeddings,image_path,query, image_filenames, n=9):
     tokenizer = AutoTokenizer.from_pretrained(CFG.text_tokenizer)
     encoded_query = tokenizer([query])
     batch = {
@@ -82,7 +82,7 @@ def find_matches(model, image_embeddings, query, image_filenames, n=9):
     
     _, axes = plt.subplots(3, 3, figsize=(10, 10))
     for match, ax in zip(matches, axes.flatten()):
-        image = cv2.imread(f"{CFG.image_path}/{match}")
+        image = cv2.imread(f"{image_path}/{match}")
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         ax.imshow(image)
         ax.axis("off")
