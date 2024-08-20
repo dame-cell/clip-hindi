@@ -73,8 +73,8 @@ class CLIPModel(nn.Module):
         super().__init__()
         self.image_encoder = ImageEncoder()
         self.text_encoder = TextEncoder()
-        self.image_projection = ProjectionHead(embedding_dim=image_embedding)
-        self.text_projection = ProjectionHead(embedding_dim=text_embedding)
+        self.image_projection = ProjectionHead(embed_dim=image_embedding)
+        self.text_projection = ProjectionHead(embed_dim=text_embedding)
         self.temperature = temperature
 
     def forward(self, batch):
