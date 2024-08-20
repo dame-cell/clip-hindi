@@ -2,8 +2,7 @@ import torch
 
 class CFG:
     debug = False
-    image_path = "Images"
-    captions_path = "captions.csv" 
+
     batch_size = 32
     num_workers = 2
     head_lr = 1e-3

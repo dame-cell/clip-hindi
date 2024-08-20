@@ -11,10 +11,21 @@ this model takes in a text or a prompt like `घास पर कुत्ता
 
 
 # Get Started 
-You can easily try this model out in this colab notebook
+You can easily try this model out in this free colab notebook 
 
-https://colab.research.google.com/drive/1j1wudcKZK3aRh0J_0PZoMvzucoiUUzwP?usp=sharing
+[![Colab](https://img.shields.io/badge/Colab-Try%20the%20model%20out%20here-yellow)](https://colab.research.google.com/drive/1j1wudcKZK3aRh0J_0PZoMvzucoiUUzwP?usp=sharing)
 
 
-# refernce 
 
+# Reference 
+
+```bibtex
+@software{Shariatnia_Simple_CLIP_2021,
+author = {Shariatnia, M. Moein},
+doi = {10.5281/zenodo.6845731},
+month = {4},
+title = {{Simple CLIP}},
+version = {1.0.0},
+year = {2021}
+}
+```
