@@ -29,8 +29,8 @@ def make_train_valid_dfs(caption_path):
 def build_loaders(dataframe, tokenizer, image_path,mode):
     transforms = get_transforms(mode=mode)
     dataset = CLIPDataset(
-        dataframe["caption"].values,
-        dataframe["image"].values,
+        captions=dataframe["caption"].values,
+        image_filenames=dataframe["image"].values,
         image_path=image_path,
         tokenizer=tokenizer,
         transforms=transforms,
