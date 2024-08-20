@@ -17,9 +17,9 @@ class CFG:
 
     model_name = 'resnet50'
     image_embedding = 2048
-    text_encoder_model = "monsoon-nlp/hindi-bert"
+    text_encoder_model = "l3cube-pune/hindi-bert-v2"
     text_embedding = 768
-    text_tokenizer = "monsoon-nlp/hindi-bert"
+    text_tokenizer = "l3cube-pune/hindi-bert-v2"
     max_length = 200
 
     pretrained = True # for both image encoder and text encoder
