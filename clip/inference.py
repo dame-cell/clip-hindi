@@ -26,11 +26,12 @@ def make_train_valid_dfs(caption_path):
     return train_dataframe, valid_dataframe
 
 
-def build_loaders(dataframe, tokenizer, mode):
+def build_loaders(dataframe, tokenizer, image_path,mode):
     transforms = get_transforms(mode=mode)
     dataset = CLIPDataset(
         dataframe["caption"].values,
         dataframe["image"].values,
+        image_path=image_path,
         tokenizer=tokenizer,
         transforms=transforms,
     )
@@ -42,9 +43,9 @@ def build_loaders(dataframe, tokenizer, mode):
     )
     return dataloader
 
-def get_image_embeddings(valid_df, model_path):
+def get_image_embeddings(valid_df,image_path,model_path):
     tokenizer = AutoTokenizer.from_pretrained(CFG.text_tokenizer)
-    valid_loader = build_loaders(valid_df, tokenizer, mode="valid")
+    valid_loader = build_loaders(valid_df, tokenizer,image_path, mode="valid")
     
     model = CLIPModel().to(CFG.device)
     model.load_state_dict(torch.load(model_path, map_location=CFG.device))
