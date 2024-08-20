@@ -10,6 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt  
 from tqdm.notebook import tqdm 
 from transformers import AutoTokenizer 
+import albumentations as A
 
   
 def make_train_valid_dfs(caption_path):
