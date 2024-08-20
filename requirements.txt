@@ -3,6 +3,8 @@ transformers
 datasets 
 accelerate 
 bitsandbytes 
- 
+albumentations
+pillow 
 pandas 
 numpy  
+python-dotenv

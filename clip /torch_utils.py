@@ -1,5 +1,7 @@
 import torch 
 import cv2 
+import numpy as np 
+from configuration import CFG 
 
 class CLIPDataset(torch.utils.data.Dataset):
     def __init__(self, image_filenames, captions, tokenizer, transforms):
@@ -35,6 +37,22 @@ class CLIPDataset(torch.utils.data.Dataset):
         return len(self.captions)
 
 
+def get_transforms(mode="train"):
+    if mode == "train":
+        return A.Compose(
+            [
+                A.Resize(CFG.size, CFG.size, always_apply=True),
+                A.Normalize(max_pixel_value=255.0, always_apply=True),
+            ]
+        )
+    else:
+        return A.Compose(
+            [
+                A.Resize(CFG.size, CFG.size, always_apply=True),
+                A.Normalize(max_pixel_value=255.0, always_apply=True),
+            ]
+        )
+
 
 def get_transforms(mode="train"):
     if mode == "train":
@@ -52,23 +70,3 @@ def get_transforms(mode="train"):
             ]
         )
 
-class AvgMeter:
-    def __init__(self, name="Metric"):
-        self.name = name
-        self.reset()
-
-    def reset(self):
-        self.avg, self.sum, self.count = [0] * 3
-
-    def update(self, val, count=1):
-        self.count += count
-        self.sum += val * count
-        self.avg = self.sum / self.count
-
-    def __repr__(self):
-        text = f"{self.name}: {self.avg:.4f}"
-        return text
-
-def get_lr(optimizer):
-    for param_group in optimizer.param_groups:
-        return param_group["lr"]

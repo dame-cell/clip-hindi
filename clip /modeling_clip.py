@@ -45,7 +45,7 @@ class TextEncoder(nn.Module):
         last_hidden_state = output.last_hidden_state
         return last_hidden_state[:, self.target_token_idx, :]
 
-class MLP(nn.Module):
+class ProjectionHead(nn.Module):
     def __init__(self, embed_dim, projected_dim=256, dropout=0.1):
         super().__init__()
         self.ln1 = nn.Linear(embed_dim, projected_dim)

@@ -1,7 +1,7 @@
 class CFG:
     debug = False
-    image_path = image_path
-    captions_path = captions_path
+    image_path = "Images"
+    captions_path = "captions.csv" 
     batch_size = 32
     num_workers = 2
     head_lr = 1e-3
