@@ -29,7 +29,7 @@ def make_train_valid_dfs(caption_path):
 def build_loaders(dataframe, tokenizer, mode):
     transforms = get_transforms(mode=mode)
     dataset = CLIPDataset(
-        dataframe["captions"].values,
+        dataframe["caption"].values,
         dataframe["image"].values,
         tokenizer=tokenizer,
         transforms=transforms,

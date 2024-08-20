@@ -8,3 +8,6 @@ pillow
 pandas 
 numpy  
 python-dotenv
+einops
+captum 
+ftfy
