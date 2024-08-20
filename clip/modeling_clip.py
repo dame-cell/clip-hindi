@@ -48,21 +48,18 @@ class TextEncoder(nn.Module):
 class ProjectionHead(nn.Module):
     def __init__(self, embed_dim, projected_dim=256, dropout=0.1):
         super().__init__()
-        self.ln1 = nn.Linear(embed_dim, projected_dim)
-        self.gelu = nn.GELU()
-        self.ln2 = nn.Linear(projected_dim, projected_dim)
+        self.projection = nn.Linear(embed_dim, projected_dim)
+        self.fc = nn.Linear(projected_dim, projected_dim)
         self.dropout = nn.Dropout(dropout)
         self.layer_norm = nn.LayerNorm(projected_dim)
 
     def forward(self, x):
-        proj = self.ln1(x)
-        x = self.gelu(proj)
-        x = self.ln2(x)
+        x = self.projection(x)
+        x = F.gelu(x)
+        x = self.fc(x)
         x = self.dropout(x)
-        x = x + proj
         x = self.layer_norm(x)
         return x
-
 class CLIPModel(nn.Module):
     def __init__(
         self,
