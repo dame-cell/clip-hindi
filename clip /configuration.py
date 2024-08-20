@@ -1,3 +1,5 @@
+import torch 
+
 class CFG:
     debug = False
     image_path = "Images"

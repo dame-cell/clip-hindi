@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from transformers import  AutoTokenizer, BertModel,BertConfig
 import transformers
 
-from configuration import CFG 
+from .configuration import CFG 
 
 
 class ImageEncoder(nn.Module):
