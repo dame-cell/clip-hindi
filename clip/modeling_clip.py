@@ -79,8 +79,8 @@ class CLIPModel(nn.Module):
         self.text_projection = ProjectionHead(embed_dim=text_embedding)
         self.temperature = temperature
 
-
-    def preprocess(image):
+    @staticmethod
+    def  preprocess(image):
         # Ensure the image is in RGB format
         if image.mode != 'RGB':
             image = image.convert('RGB')
