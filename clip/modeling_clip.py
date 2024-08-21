@@ -76,11 +76,11 @@ class CLIPModel(nn.Module):
         self.text_projection = ProjectionHead(embed_dim=text_embedding)
         self.temperature = temperature
 
-    def forward(self, batch):
+    def forward(self, image_input, text_input_ids, text_attention_mask):
         # Getting Image and Text Features
-        image_features = self.image_encoder(batch["image"])
+        image_features = self.image_encoder(image_input)
         text_features = self.text_encoder(
-            input_ids=batch["input_ids"], attention_mask=batch["attention_mask"]
+            input_ids=text_input_ids, attention_mask=text_attention_mask
         )
         # Getting Image and Text Embeddings (with same dimension)
         image_embeddings = self.image_projection(image_features)
