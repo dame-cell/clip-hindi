@@ -80,22 +80,13 @@ class CLIPModel(nn.Module):
         self.temperature = temperature
 
     @staticmethod
-    def  preprocess(image):
-        # Ensure the image is in RGB format
-        if image.mode != 'RGB':
-            image = image.convert('RGB')
-
-        # Define the transformation pipeline
-        transform = transforms.Compose([
-            transforms.Resize(256, interpolation=Image.BICUBIC),  # Resize image to 256x256 using bicubic interpolation
-            transforms.CenterCrop((256, 256)),  # Center crop the image to 256x256
-            transforms.ToTensor(),  # Convert image to tensor
-            transforms.Normalize(mean=(0.48145466, 0.4578275, 0.40821073),  # Normalize using given mean
-                                std=(0.26862954, 0.26130258, 0.27577711))   # and standard deviation
-        ])
-        
-        # Apply the transformations to the input image
-        return transform(image)
+    def  preprocess():
+        return A.Compose(
+                [
+                    A.Resize(224, 224, always_apply=True),
+                    A.Normalize(max_pixel_value=255.0, always_apply=True),
+                ]
+            )
 
     def forward(self, image_input, text_input_ids, text_attention_mask):
         # Getting Image and Text Features
