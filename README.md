@@ -39,7 +39,7 @@ from transformers import AutoTokenizer
 import torch.nn.functional as F
 
 model = CLIPModel().to("cuda")
-model.load_state_dict(torch.load("/kaggle/working/clip-hindi/model/model.pt", map_location="cuda"))
+model.load_state_dict(torch.load("where you stored you model.pt", map_location="cuda"))
 tokenizer = AutoTokenizer.from_pretrained("l3cube-pune/hindi-bert-v2")
 
 text_inputs = tokenizer(["किताब में एक पेज", "एक कॉफ़ी", "एक बिल्ली"], padding=True, truncation=True, return_tensors="pt")
