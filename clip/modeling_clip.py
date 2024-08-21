@@ -60,6 +60,8 @@ class ProjectionHead(nn.Module):
         x = self.dropout(x)
         x = self.layer_norm(x)
         return x
+
+        
 class CLIPModel(nn.Module):
     def __init__(
         self,
