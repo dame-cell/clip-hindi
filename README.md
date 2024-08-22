@@ -26,8 +26,7 @@ Then you wil have to download the pytorch model from huggingface
 from huggingface_hub import hf_hub_download
 hf_hub_download(repo_id="damerajee/clip-hindi", filename="model.pt",local_dir="model")
 ```
-You can then load the model  and the image as well we load the image from skimage 
-
+You can then load the model  and the image as well 
 ```python 
 import torch 
 from clip.modeling_clip import CLIPModel
@@ -37,9 +36,6 @@ import numpy as np
 from transformers import AutoTokenizer 
 import torch.nn.functional as F
 import requests
-
-
-
 
 model = CLIPModel().to("cuda")
 model.load_state_dict(torch.load("where you stored you model.pt", map_location="cuda"))
