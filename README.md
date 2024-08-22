@@ -9,7 +9,8 @@ In this case we used two pre-trained model to encode both images and texts:
 # Examples 
 This model takes in a text or a prompt like `घास पर कुत्ता` and then a bunch of images pass the images and prompt to the text encoder and image encoder computes the similarities and then tell us which images is the most similar based on the prompt 
 
-![Dog](images/dog.png)
+<img src="images/dog.png" alt="Dog" width="700"/>
+
 
 
 # Get Started 
