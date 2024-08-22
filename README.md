@@ -31,21 +31,28 @@ You can then load the model  and the image as well we load the image from skimag
 ```python 
 import torch 
 from clip.modeling_clip import CLIPModel
-from skimage import data
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 from transformers import AutoTokenizer 
 import torch.nn.functional as F
+import requests
+
+
+
 
 model = CLIPModel().to("cuda")
 model.load_state_dict(torch.load("where you stored you model.pt", map_location="cuda"))
 tokenizer = AutoTokenizer.from_pretrained("l3cube-pune/hindi-bert-v2")
 
-text_inputs = tokenizer(["किताब में एक पेज", "एक कॉफ़ी", "एक बिल्ली"], padding=True, truncation=True, return_tensors="pt")
+text_inputs = tokenizer([
+    "एक बिल्ली की लेटी हुई तस्वीर",
+    "एक कुत्ते की लेटी हुई तस्वीर",
+], padding=True, truncation=True, return_tensors="pt")
 
-# load the images 
-image = data.coffee()  
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
 cat_image = Image.fromarray(np.uint8(image))
 image_np = np.array(image)  
 preprocessor = model.preprocess()  
@@ -71,10 +78,13 @@ text_embeddings_n = F.normalize(text_features, p=2, dim=-1)
 dot_similarity = text_embeddings_n @ image_embeddings_n.T
 print("dot_similarity",dot_similarity)
 
-# output - > tensor([[0.0389],[0.0460],[0.0352]], device='cuda:0', grad_fn=<MmBackward0>)
+# output - > # output - > dot_similarity tensor([[0.0502],[0.0465]], grad_fn=<MmBackward0>)
 ```
 
+# Limitations 
+The model was just trained on the flicker9k captions for 10 epochs so it is not that good 
 
+will be training on larger dataset 
 
 # Reference 
 
