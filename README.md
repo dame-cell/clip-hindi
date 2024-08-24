@@ -15,6 +15,18 @@ This model takes in a text or a prompt like `घास पर कुत्ता
   <img src="images/dog.png" alt="Dog" width="700"/>
 </div>
 
+# Hyper-parameters 
+
+| **Hyperparameter**      | **Value**                               |
+|-------------------------|-----------------------------------------|
+| batch_size            | 32                                    |
+| num_workers           | 2                                     |
+| head_lr               | 1e-3                                  |
+| image_encoder_lr      | 1e-4                                  |
+| text_encoder_lr       | 1e-5                                  |
+| weight_decay          | 1e-3                                  |
+| patience              | 1                                     |
+| factor                | 0.8                                   |
 
 # Get Started 
 
