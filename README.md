@@ -15,7 +15,7 @@ This model takes in a text or a prompt like `घास पर कुत्ता
   <img src="images/dog.png" alt="Dog" width="700"/>
 </div>
 
-# Hyper-parameters 
+# Hyper-parameters during training
 
 | **Hyperparameter**      | **Value**                               |
 |-------------------------|-----------------------------------------|
