@@ -11,9 +11,10 @@ We also provide a notebook for finetuning the model
 # Examples 
 This model takes in a text or a prompt like `घास पर कुत्ता` and then a bunch of images pass the images and prompt to the text encoder and image encoder computes the similarities and then tell us which images is the most similar based on the prompt 
 
-<div style="text-align: center;">
-  <img src="images/dog.png" alt="Dog" width="700"/>
-</div>
+<p align="center">
+  <img src="images/dog.png" alt="dogs" width="700"/>
+</p>
+
 
 # Hyper-parameters during training
 
@@ -45,6 +46,13 @@ This approach ensures that each part of the model receives appropriate optimizat
 A learning rate scheduler, ReduceLROnPlateau, was employed to adjust the learning rate based on validation performance. This scheduler decreases the learning rate when the validation loss plateaus, with parameters set to a patience of 1 epoch and a reduction factor of 0.8. This adaptive adjustment helps in fine-tuning the model further when the learning progress slows down, leading to better performance and more stable training outcomes.
 
 # Train Loss and Eval Loss 
+
+<p align="center">
+  <img src="images/train_valloss.png" alt="Train and Validation Loss" width="700"/>
+</p>
+The training loss started at 18.4 then gradually decreases to 0.84 after 10 epochs , while the val loss decreases  to almost 1.202 at the end 
+continual training did not decrease the loss any further due to training it on a very small datasets 
+
 
 # Get Started 
 
@@ -114,7 +122,7 @@ print("dot_similarity",dot_similarity)
 ```
 
 # Limitations 
-The model was just trained on the flicker9k captions for 10 epochs so it is not that good 
+The model was just trained on the flicker8k captions for 10 epochs so it is not that good 
 
 will be training on larger dataset 
 
