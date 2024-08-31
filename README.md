@@ -28,6 +28,24 @@ This model takes in a text or a prompt like `घास पर कुत्ता
 | patience              | 1                                     |
 | factor                | 0.8                                   |
 
+# Optimizer
+
+The optimizer used was AdamW, a variant of the Adam optimizer that includes weight decay. In this setup, the weight decay is set to 0.1, which enhances training stability and speeds up convergence by efficiently managing regularization.
+
+# Learning Rate
+
+For this CLIP model, each component was assigned its own learning rate, tailored to its role and importance. Specifically:
+
+The image encoder and text encoder each have distinct learning rates, allowing for more fine-grained control over their training dynamics.
+The projection layers, which are crucial for aligning image and text features, use a higher learning rate to expedite convergence in their specific task, coupled with weight decay to prevent overfitting.
+This approach ensures that each part of the model receives appropriate optimization attention, improving overall training efficiency.
+
+# Learning Rate Scheduler
+
+A learning rate scheduler, ReduceLROnPlateau, was employed to adjust the learning rate based on validation performance. This scheduler decreases the learning rate when the validation loss plateaus, with parameters set to a patience of 1 epoch and a reduction factor of 0.8. This adaptive adjustment helps in fine-tuning the model further when the learning progress slows down, leading to better performance and more stable training outcomes.
+
+# Train Loss and Eval Loss 
+
 # Get Started 
 
 First you will have to git clone this repo 
