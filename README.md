@@ -16,6 +16,8 @@ This model takes in a text or a prompt like `घास पर कुत्ता
 </p>
 
 
+
+
 # Hyper-parameters during training
 
 | **Hyperparameter**      | **Value**                               |
@@ -50,8 +52,10 @@ A learning rate scheduler, ReduceLROnPlateau, was employed to adjust the learnin
 <p align="center">
   <img src="images/train_valloss.png" alt="Train and Validation Loss" width="700"/>
 </p>
-The training loss started at 18.4 then gradually decreases to 0.84 after 10 epochs , while the val loss decreases  to almost 1.202 at the end 
-continual training did not decrease the loss any further due to training it on a very small datasets 
+
+- The training loss started at 18.4 then gradually decreases to 0.84 after 10 epochs
+- while the val loss decreases  to almost 1.202 at the end 
+- continual training did not decrease the loss any further due to training it on a very small datasets 
 
 
 # Get Started 
