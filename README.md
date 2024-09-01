@@ -122,13 +122,11 @@ text_embeddings_n = F.normalize(text_features, p=2, dim=-1)
 dot_similarity = text_embeddings_n @ image_embeddings_n.T
 print("dot_similarity",dot_similarity)
 
-# output - > # output - > dot_similarity tensor([[0.0502],[0.0465]], grad_fn=<MmBackward0>)
+# output - > dot_similarity tensor([[0.0502],[0.0465]], grad_fn=<MmBackward0>)
 ```
 
 # Limitations 
 The model was just trained on the flicker8k captions for 10 epochs so it is not that good 
-
-will be training on larger dataset 
 
 # Reference 
 
