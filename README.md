@@ -125,8 +125,7 @@ print("dot_similarity",dot_similarity)
 # output - > dot_similarity tensor([[0.0502],[0.0465]], grad_fn=<MmBackward0>)
 ```
 
-# Limitations 
-The model was just trained on the flicker8k captions for 10 epochs so it is not that good 
+
 
 # Reference 
 
